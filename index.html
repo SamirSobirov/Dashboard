@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>DASHBOARD</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="right">
+                <h1>Dashboard</h1>
+                <button>Добавить задачу</button>
+            </div>
+            <div class="left">
+                <input type="text" name="search" placeholder="Поиск по задачам">
+            </div>
+        </header>
+
+        <main>
+            <div class="show_type">
+                <span>Показать задачи как:</span><span class="table_type">Таблица</span><span class="tile_type">Плитка</span>
+            </div>
+
+            <div class="tasks">
+                <nav>
+                    <p>Заголовок задачи</p>
+                    <p>Описание задачи</p>
+                    <p>Дата</p>
+                    <p>Время</p>
+                    <p>Выполнено</p>
+                </nav>
+                <div class="tasks_list"></div>
+            </div>
+        </main>
+    </div>
+
+    <div class="popup">
+        <div class="close_area"></div>
+        <div class="popup_content">
+            <div class="title">Добавить</div>
+            <form name="popup_form">
+                <input name="title" class="box" type="text" placeholder="Заголовок">
+                <input name="descr" class="box" type="text" placeholder="Описание">
+                <input name="time" class="box" type="time" placeholder="Время">
+                <input name="date" class="box" type="date" placeholder="Дата">
+                <select name="state" class="box">
+                    <option value="new">new</option>
+                    <option value="progress">progress</option>
+                    <option value="done">done</option>
+                </select>
+                <button class="box btn">Добавить</button>
+                <div class="box delete btn unVisible">Удалить</div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
