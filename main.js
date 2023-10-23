@@ -1,7 +1,7 @@
 let addTask = document.querySelector('.right button')
 let closeBtn = document.querySelector('.close_area')
 let popup = document.querySelector('.popup')
-let B_url = 'http://localhost:8090/users'
+let B_url = 'http://localhost:8080/users'
 let tasks_list = document.querySelector('.tasks_list')
 let form = document.forms.popup_form
 let table_view = document.querySelector('.show_type .table_type')
@@ -11,6 +11,17 @@ let inps = form.querySelectorAll('input')
 let delete_btn = form.querySelector('.delete')
 let obj = {}
 
+
+
+showTypeColor()
+table_view.onclick = () => {
+    tasks.className = 'tasks'
+    showTypeColor()
+}
+tile_view.onclick = () => {
+    tasks.className = 'tasks tile'
+    showTypeColor()
+}
 addTask.onclick = () => modalToggle()
 closeBtn.onclick = () => modalToggle()
 
@@ -103,6 +114,7 @@ function reload(arr, place) {
         }
     }
 }
+
 reFetch()
 
 function modalToggle() {
@@ -114,3 +126,13 @@ function modalToggle() {
     } else { popup.classList.add('popup_act') }
 }
 function reFetch() { fetch(B_url).then(res => res.json()).then(res => reload(res, tasks_list)) }
+
+function showTypeColor() {
+    if (tasks.classList.contains('tile')) {
+        table_view.style.color = null
+        tile_view.style.color = '#007FFF'
+    } else {
+        table_view.style.color = '#007FFF'
+        tile_view.style.color = null
+    }
+}
